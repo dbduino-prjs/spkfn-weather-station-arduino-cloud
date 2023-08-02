@@ -1,0 +1,75 @@
+name: Spkfn_Weather_Station
+variables:
+    - name: humidity
+      permission: READ_ONLY
+      type: FLOAT
+      update_parameter: 1
+      update_strategy: TIMED
+      variable_name: humidity
+    - name: lightningDistance
+      permission: READ_ONLY
+      type: FLOAT
+      update_parameter: 1
+      update_strategy: TIMED
+      variable_name: lightningDistance
+    - name: pressure
+      permission: READ_ONLY
+      type: FLOAT
+      update_parameter: 1
+      update_strategy: TIMED
+      variable_name: pressure
+    - name: rain
+      permission: READ_ONLY
+      type: FLOAT
+      update_parameter: 1
+      update_strategy: TIMED
+      variable_name: rain
+    - name: soilMoisture
+      permission: READ_ONLY
+      type: FLOAT
+      update_parameter: 1
+      update_strategy: TIMED
+      variable_name: soilMoisture
+    - name: temperature
+      permission: READ_ONLY
+      type: FLOAT
+      update_parameter: 1
+      update_strategy: TIMED
+      variable_name: temperature
+    - name: uva
+      permission: READ_ONLY
+      type: FLOAT
+      update_parameter: 1
+      update_strategy: TIMED
+      variable_name: uva
+    - name: uvb
+      permission: READ_ONLY
+      type: FLOAT
+      update_parameter: 1
+      update_strategy: TIMED
+      variable_name: uvb
+    - name: uvIndex
+      permission: READ_ONLY
+      type: FLOAT
+      update_parameter: 1
+      update_strategy: TIMED
+      variable_name: uvIndex
+    - name: windDirection
+      permission: READ_ONLY
+      type: FLOAT
+      update_parameter: 1
+      update_strategy: TIMED
+      variable_name: windDirection
+    - name: windSpeed
+      permission: READ_ONLY
+      type: FLOAT
+      update_parameter: 1
+      update_strategy: TIMED
+      variable_name: windSpeed
+    - name: lightningOccurred
+      permission: READ_ONLY
+      type: STATUS
+      update_parameter: 1
+      update_strategy: TIMED
+      variable_name: lightningOccurred
+
