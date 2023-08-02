@@ -4,55 +4,67 @@
 :Revision: version#
 :License: Public Domain
 
-= Project: {Project}
+= Project: Monitor SparkFun Weather Station Kit with Arduino Cloud
 
-Describe your project
+This project shows how to create a weather station monitored by https://cloud.arduino.cc[Arduino Cloud].
 
-== Step 1: Installation
-Please describe the steps to install this project.
+No matter if you're an agriculturalist, a professional meteorologist, or simply a weather enthusiast, creating your own weather station can be an incredibly fulfilling endeavor. But when it comes to measuring weather accurately, you'll require some specialized sensors. With the combination of the https://www.sparkfun.com/products/16794[Sparkfun MicroMod Weather Carrier Board] and the https://www.sparkfun.com/products/15901[Sparkfun Weather Meter kit] you can build your own weather monitor station very easily.
+ 
+== Prerequisites
+. https://www.sparkfun.com/products/16781[SparkFun MicroMod ESP32 Processor]
+. https://www.sparkfun.com/products/16794 [SparkFun MicroMod Weather Carrier Board]
+  - It has a M.2 socket where the microprocessor board will be inserted
+  - It includes the BME280 temperature, pressure and humidity sensor, the VEML6075 UV sensor and the AS3935 Lightning detector.
+. https://www.sparkfun.com/products/15901[SparkFun Weather Meter Kit]
+  - It includes the three fundamental components for weather measurement: wind speed, wind direction, and rainfall
+. An https://cloud.arduino.cc/home/?get-started=true[Arduino Cloud account]
 
-For example:
+== Kit assembly
 
-1. Open this file
-2. Edit as you like
-3. Release to the World!
+. Insert the MicroMod ESP32 Processor board into the M.2 socket of the carrier board
+. Connect the carrier board to your computer using a USB-C cable
+. Assemble the weather kit and connect it to the carrier board following the https://learn.sparkfun.com/tutorials/weather-meter-hookup-guide?_gl=1*12fayw8*_ga*MzA0MDIyNDUzLjE2ODQ5NDA1OTA.*_ga_T369JS7J9N*MTY5MDk4ODM2OS43LjEuMTY5MDk4OTMwMy41OC4wLjA.&_ga=2.166871163.49634511.1690988369-304022453.1684940590[instructions]
 
-== Step 2: Assemble the circuit
+== Installation
 
-Assemble the circuit following the diagram layout.png attached to the sketch
+Althought the full process of creating a device, thing and dashboard is described in the following https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started[article] you can follow this simple instructions
 
-== Step 3: Load the code
+. Open the Arduino Cloud https://create.arduino.cc/iot/devices[Devices tab] and add a Device
+  - Follow the instructions to add the device and note down the Device ID and Key
+. Open the Arduino Cloud https://create.arduino.cc/iot/things[Things tab] and add a Thing
+  - Associate the previously created device
+  - Add the variables listed in the *Variables* section
+  - Configure the Network credentials and Device key obtained in the first step
+  - Open the Sketch tab and paste the content of the .ino file
+. Click on Verify and Upload
 
-Upload the code contained in this sketch on to your board
+TIP: Instead of doing the process manually, you can create the Thing and Dashboard using the Cloud CLI and the templates that can be found in the *arduino-cloud* folder. More information in this https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli[article]
 
-=== Folder structure
-
-....
- sketch123                => Arduino sketch folder
-  ├── sketch123.ino       => main Arduino file
-  ├── schematics.png      => (optional) an image of the required schematics
-  ├── layout.png          => (optional) an image of the layout
-  └── ReadMe.adoc         => this file
-....
-
-=== License
-This project is released under a {License} License.
-
-=== Contributing
-To contribute to this project please contact: 
-
-=== BOM
-Add the bill of the materials you need for this project.
-
+=== Variables
+[cols="6a,6a,6a,6a,6a,6a"]
 |===
-| ID | Part name      | Part number | Quantity
-| R1 | 10k Resistor   | 1234-abcd   | 10       
-| L1 | Red LED        | 2345-asdf   | 5        
-| A1 | Arduino Zero   | ABX00066    | 1        
+|Name |Permission |Type |Update Parameter |Update Strategy |Variable Name
+|humidity |READ_ONLY |FLOAT |1 |TIMED |humidity
+|lightningDistance |READ_ONLY |FLOAT |1 |TIMED |lightningDistance
+|pressure |READ_ONLY |FLOAT |1 |TIMED |pressure
+|rain |READ_ONLY |FLOAT |1 |TIMED |rain
+|soilMoisture |READ_ONLY |FLOAT |1 |TIMED |soilMoisture
+|temperature |READ_ONLY |FLOAT |1 |TIMED |temperature
+|uva |READ_ONLY |FLOAT |1 |TIMED |uva
+|uvb |READ_ONLY |FLOAT |1 |TIMED |uvb
+|uvIndex |READ_ONLY |FLOAT |1 |TIMED |uvIndex
+|windDirection |READ_ONLY |FLOAT |1 |TIMED |windDirection
+|windSpeed |READ_ONLY |FLOAT |1 |TIMED |windSpeed
+|lightningOccurred |READ_ONLY |BOOLEAN |1 |TIMED |lightningOccurred
 |===
 
+== License
+This project is released under a GNU General Public v3.0 License.
 
-=== Help
+== Contributing
+To contribute to this project please contact: d.beamonte@arduino.cc
+
+== Help
 This document is written in the _AsciiDoc_ format, a markup language to describe documents. 
 If you need help you can search the http://www.methods.co.nz/asciidoc[AsciiDoc homepage]
 or consult the http://powerman.name/doc/asciidoc[AsciiDoc cheatsheet]
