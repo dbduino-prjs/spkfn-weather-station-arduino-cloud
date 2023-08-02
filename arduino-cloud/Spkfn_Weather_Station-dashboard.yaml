@@ -1,0 +1,246 @@
+name: Sparkfun_Weather_Station
+widgets:
+    - height: 9
+      height_mobile: 9
+      name: Wind
+      type: Advanced Chart
+      width: 8
+      width_mobile: 8
+      x: 16
+      x_mobile: 0
+      "y": 8
+      y_mobile: 53
+    - height: 9
+      height_mobile: 9
+      name: UV
+      type: Advanced Chart
+      width: 8
+      width_mobile: 8
+      x: 4
+      x_mobile: 0
+      "y": 8
+      y_mobile: 44
+    - height: 8
+      height_mobile: 9
+      name: Rain + Pressure
+      type: Advanced Chart
+      width: 8
+      width_mobile: 8
+      x: 4
+      x_mobile: 0
+      "y": 0
+      y_mobile: 35
+    - height: 8
+      height_mobile: 9
+      name: Temperature + Humidity
+      type: Advanced Chart
+      width: 8
+      width_mobile: 8
+      x: 16
+      x_mobile: 0
+      "y": 0
+      y_mobile: 26
+    - height: 6
+      height_mobile: 9
+      name: Lightning Distance
+      type: Advanced Chart
+      width: 8
+      width_mobile: 8
+      x: 4
+      x_mobile: 0
+      "y": 17
+      y_mobile: 62
+    - height: 3
+      height_mobile: 3
+      name: uva
+      options:
+        max: 100
+        min: 0
+      type: Gauge
+      variables:
+        - thing_id: Spkfn_Weather_Station
+          variable_id: uva
+      width: 4
+      width_mobile: 4
+      x: 0
+      x_mobile: 0
+      "y": 8
+      y_mobile: 9
+    - height: 5
+      height_mobile: 3
+      name: Wind Direction (Deg)
+      options:
+        max: 360
+        min: 0
+      type: Gauge
+      variables:
+        - thing_id: Spkfn_Weather_Station
+          variable_id: windDirection
+      width: 4
+      width_mobile: 4
+      x: 12
+      x_mobile: 4
+      "y": 12
+      y_mobile: 6
+    - height: 3
+      height_mobile: 3
+      name: UV Index
+      options:
+        max: 15
+        min: 0
+      type: Gauge
+      variables:
+        - thing_id: Spkfn_Weather_Station
+          variable_id: uvIndex
+      width: 4
+      width_mobile: 4
+      x: 0
+      x_mobile: 0
+      "y": 14
+      y_mobile: 12
+    - height: 3
+      height_mobile: 3
+      name: uvb
+      options:
+        max: 100
+        min: 0
+      type: Gauge
+      variables:
+        - thing_id: Spkfn_Weather_Station
+          variable_id: uvb
+      width: 4
+      width_mobile: 4
+      x: 0
+      x_mobile: 4
+      "y": 11
+      y_mobile: 9
+    - height: 4
+      height_mobile: 3
+      name: Humidity (%)
+      options:
+        max: 100
+        min: 0
+        percentage: true
+        showThing: false
+      type: Percentage
+      variables:
+        - thing_id: Spkfn_Weather_Station
+          variable_id: humidity
+      width: 4
+      width_mobile: 4
+      x: 12
+      x_mobile: 0
+      "y": 4
+      y_mobile: 3
+    - height: 4
+      height_mobile: 3
+      name: Temperature (ºC)
+      options:
+        max: 50
+        min: -10
+      type: Gauge
+      variables:
+        - thing_id: Spkfn_Weather_Station
+          variable_id: temperature
+      width: 4
+      width_mobile: 4
+      x: 12
+      x_mobile: 0
+      "y": 0
+      y_mobile: 6
+    - height: 6
+      height_mobile: 3
+      name: Soil Moisture (%)
+      options:
+        max: 100
+        min: 0
+      type: Gauge
+      variables:
+        - thing_id: Spkfn_Weather_Station
+          variable_id: soilMoisture
+      width: 6
+      width_mobile: 4
+      x: 12
+      x_mobile: 4
+      "y": 17
+      y_mobile: 12
+    - height: 3
+      height_mobile: 3
+      name: Lightning
+      options:
+        mode: True / False
+      type: Status
+      variables:
+        - thing_id: Spkfn_Weather_Station
+          variable_id: lightningOccurred
+      width: 4
+      width_mobile: 4
+      x: 0
+      x_mobile: 4
+      "y": 20
+      y_mobile: 15
+    - height: 3
+      height_mobile: 3
+      name: Lightning Distance
+      options:
+        max: 100
+        min: 0
+      type: Gauge
+      variables:
+        - thing_id: Spkfn_Weather_Station
+          variable_id: lightningDistance
+      width: 4
+      width_mobile: 4
+      x: 0
+      x_mobile: 0
+      "y": 17
+      y_mobile: 15
+    - height: 4
+      height_mobile: 3
+      name: Pressure
+      options:
+        max: 1200
+        min: 700
+      type: Gauge
+      variables:
+        - thing_id: Spkfn_Weather_Station
+          variable_id: pressure
+      width: 4
+      width_mobile: 4
+      x: 0
+      x_mobile: 4
+      "y": 4
+      y_mobile: 6
+    - height: 4
+      height_mobile: 3
+      name: Rain (l/m2)
+      options:
+        max: 100
+        min: 0
+      type: Gauge
+      variables:
+        - thing_id: Spkfn_Weather_Station
+          variable_id: rain
+      width: 4
+      width_mobile: 4
+      x: 0
+      x_mobile: 4
+      "y": 0
+      y_mobile: 3
+    - height: 4
+      height_mobile: 3
+      name: Wind Speed (km/h)
+      options:
+        max: 100
+        min: 0
+      type: Gauge
+      variables:
+        - thing_id: Spkfn_Weather_Station
+          variable_id: windSpeed
+      width: 4
+      width_mobile: 4
+      x: 12
+      x_mobile: 0
+      "y": 8
+      y_mobile: 6
+
