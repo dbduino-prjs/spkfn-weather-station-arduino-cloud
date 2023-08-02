@@ -9,7 +9,10 @@
 This project shows how to create a weather station monitored by https://cloud.arduino.cc[Arduino Cloud].
 
 No matter if you're an agriculturalist, a professional meteorologist, or simply a weather enthusiast, creating your own weather station can be an incredibly fulfilling endeavor. But when it comes to measuring weather accurately, you'll require some specialized sensors. With the combination of the https://www.sparkfun.com/products/16794[Sparkfun MicroMod Weather Carrier Board] and the https://www.sparkfun.com/products/15901[Sparkfun Weather Meter kit] you can build your own weather monitor station very easily.
- 
+
+image::https://github.com/dbduino-prjs/spkfn-weather-station-arduino-cloud/blob/master/assets/Sparkfun_Weather_Station-screenshot1.png?raw=true[width=300, align=center]
+:caption: Screenshot of the Weather Station dashboard
+
 == Prerequisites
 . https://www.sparkfun.com/products/16781[SparkFun MicroMod ESP32 Processor]
 . https://www.sparkfun.com/products/16794 [SparkFun MicroMod Weather Carrier Board]
