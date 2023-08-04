@@ -81,7 +81,6 @@ void setup() {
  */
   setDebugMessageLevel(4);
   ArduinoCloud.printDebugInfo();
-  cloud_synced = false;
   Serial.println("Setup finished!");
 }
 
