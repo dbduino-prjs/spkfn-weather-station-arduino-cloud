@@ -27,6 +27,13 @@
 
 #include "thingProperties.h"
 
+#define ARDUINO_CLOUD_PLAN_FREE   0
+#define ARDUINO_CLOUD_PLAN_ENTRY  1
+#define ARDUINO_CLOUD_PLAN_MAKER  2
+
+// Set ARDUINO_CLOUD_PLAN to one of the above (ARDUINO_CLOUD_PLAN_xxxx)
+#define ARDUINO_CLOUD_PLAN    ARDUINO_CLOUD_PLAN_MAKER
+
 // Libraries
 #include <Wire.h>
 #include <SPI.h>
@@ -54,6 +61,23 @@ SparkFun_AS3935 myAS3935;
 bool bme280Connected = false;
 bool veml6075Connected = false;
 bool as3935Connected = false;
+
+#if ARDUINO_CLOUD_PLAN < ARDUINO_CLOUD_PLAN_MAKER
+  float uva;
+  float uvb;
+# if ARDUINO_CLOUD_PLAN < ARDUINO_CLOUD_PLAN_ENTRY
+  float humidity;
+  //float pressure;
+  float soilMoisture;
+  //float rain;
+  //float temperature;
+  float uvIndex;
+  bool lightningOccurred;
+  float lightningDistance;
+  //float windDirection;
+  //float windSpeed;
+# endif
+#endif
 
 unsigned long polling_period = 1000;
 
