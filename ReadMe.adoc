@@ -5,6 +5,7 @@
 :License: Public Domain
 
 = Project: Monitor SparkFun Weather Station Kit with Arduino Cloud
+
 This project shows how to create a weather station monitored by https://cloud.arduino.cc[Arduino Cloud].
 
 No matter if you're an agriculturalist, a professional meteorologist, or simply a weather enthusiast, creating your own weather station can be an incredibly fulfilling endeavor. But when it comes to measuring weather accurately, you'll require some specialized sensors. With the combination of the https://www.sparkfun.com/products/16794[Sparkfun MicroMod Weather Carrier Board] and the https://www.sparkfun.com/products/15901[Sparkfun Weather Meter kit] you can build your own weather monitor station very easily.
@@ -28,7 +29,7 @@ Follow these instructions to assemble the kit:
 . Assemble the weather kit and connect it to the carrier board following the https://learn.sparkfun.com/tutorials/weather-meter-hookup-guide?_gl=1*12fayw8*_ga*MzA0MDIyNDUzLjE2ODQ5NDA1OTA.*_ga_T369JS7J9N*MTY5MDk4ODM2OS43LjEuMTY5MDk4OTMwMy41OC4wLjA.&_ga=2.166871163.49634511.1690988369-304022453.1684940590[instructions]
 
 == Installation
-Althought the full process of creating a device, thing and dashboard is described in the following https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started[article] you can follow this simple instructions
+Although the full process of creating a device, thing and dashboard is described in the following https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started[article] you can follow this simple instructions
 
 . Open the Arduino Cloud https://create.arduino.cc/iot/devices[Devices tab] and add a Device
   - Follow the instructions to add the device and note down the Device ID and Key
@@ -36,8 +37,9 @@ Althought the full process of creating a device, thing and dashboard is describe
   - Associate the previously created device
   - Add the variables listed in the *Variables* section
   - Configure the Network credentials and Device key obtained in the first step
-. Open the Sketch tab (this is the _IoT Cloud editor_) and paste the content of the .ino file
-  - Edit the line of the 
+. Open the Sketch tab (this is the _IoT Cloud editor_) and paste the content of the Spkfn_Weather_Station.ino file
+  - Edit the line that includes the code `#define ARDUINO_CLOUD_PLAN    ARDUINO_CLOUD_PLAN_MAKER`
+    * Set it to your plan: `ARDUINO_CLOUD_PLAN_FREE`, `ARDUINO_CLOUD_PLAN_ENTRY` or `ARDUINO_CLOUD_PLAN_MAKER`
 . Click on *"Open full editor"*
   - Open the "Library Manager" in the "Libraries" tab
   - Search and mark as Favorite (click on the star) the following libraries:
@@ -51,6 +53,7 @@ TIP: Instead of doing the process manually, you can create the Thing and Dashboa
 
 
 === Variables
+Create the variables according to the following rules:
 [options="header",cols="6a,6a,6a,6a,6a,6a,6a"]
 |===
 |Name |Permission |Type |Update Parameter |Update Strategy |Variable Name| Starting Plan
@@ -89,7 +92,7 @@ Check the full list of supported features for each https://cloud.arduino.cc/plan
 
 
 == License
-This project is released under a GNU General Public v3.0 License.
+This project is released under the GNU General Public License v3.0.
 
 == Contributing
 To contribute to this project please contact: d.beamonte@arduino.cc
