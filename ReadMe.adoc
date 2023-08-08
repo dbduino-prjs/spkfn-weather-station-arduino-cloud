@@ -4,7 +4,7 @@
 :Revision: version#
 :License: Public Domain
 
-= Project: Monitor SparkFun Weather Station Kit with Arduino Cloud
+= Monitor SparkFun Weather Station Kit with Arduino Cloud
 
 This project shows how to create a weather station monitored by https://cloud.arduino.cc[Arduino Cloud].
 
@@ -23,14 +23,13 @@ image::https://github.com/dbduino-prjs/spkfn-weather-station-arduino-cloud/blob/
 . An https://cloud.arduino.cc/home/?get-started=true[Arduino Cloud account]
 
 == Kit assembly
-
+Follow these instructions to assemble the kit:
 . Insert the MicroMod ESP32 Processor board into the M.2 socket of the carrier board
 . Connect the carrier board to your computer using a USB-C cable
 . Assemble the weather kit and connect it to the carrier board following the https://learn.sparkfun.com/tutorials/weather-meter-hookup-guide?_gl=1*12fayw8*_ga*MzA0MDIyNDUzLjE2ODQ5NDA1OTA.*_ga_T369JS7J9N*MTY5MDk4ODM2OS43LjEuMTY5MDk4OTMwMy41OC4wLjA.&_ga=2.166871163.49634511.1690988369-304022453.1684940590[instructions]
 
 == Installation
-
-Althought the full process of creating a device, thing and dashboard is described in the following https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started[article] you can follow this simple instructions
+Although the full process of creating a device, thing and dashboard is described in the following https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started[article] you can follow this simple instructions
 
 . Open the Arduino Cloud https://create.arduino.cc/iot/devices[Devices tab] and add a Device
   - Follow the instructions to add the device and note down the Device ID and Key
@@ -38,31 +37,85 @@ Althought the full process of creating a device, thing and dashboard is describe
   - Associate the previously created device
   - Add the variables listed in the *Variables* section
   - Configure the Network credentials and Device key obtained in the first step
-  - Open the Sketch tab and paste the content of the .ino file
-. Click on Verify and Upload
+. Open the Sketch tab (this is the _IoT Cloud editor_) and paste the content of the Spkfn_Weather_Station.ino file
+  - Edit the line that includes the code `#define ARDUINO_CLOUD_PLAN    ARDUINO_CLOUD_PLAN_MAKER`
+    * Set it to your plan: `ARDUINO_CLOUD_PLAN_FREE`, `ARDUINO_CLOUD_PLAN_ENTRY` or `ARDUINO_CLOUD_PLAN_MAKER`
+. Click on *"Open full editor"*
+  - Open the "Library Manager" in the "Libraries" tab
+  - Search and mark as Favorite (click on the star) the following libraries:
+    * SparkFun AS3935 Lightning Detector Arduino Library
+    * SparkFun BME280 Arduino Library
+    * SparkFun VEML6075 Arduino Library
+    * SparkFun Weather Meter Kit Arduino Library
+. Back in the _IoT Cloud Editor_, click on _Verify and Upload_
 
 TIP: Instead of doing the process manually, you can create the Thing and Dashboard using the Cloud CLI and the templates that can be found in the *arduino-cloud* folder. More information in this https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli[article]
 
+
 === Variables
-[cols="6a,6a,6a,6a,6a,6a"]
+Create the variables according to the following rules:
+[options="header",cols="6a,6a,6a,6a,6a,6a,6a"]
 |===
-|Name |Permission |Type |Update Parameter |Update Strategy |Variable Name
-|humidity |READ_ONLY |FLOAT |1 |TIMED |humidity
-|lightningDistance |READ_ONLY |FLOAT |1 |TIMED |lightningDistance
-|pressure |READ_ONLY |FLOAT |1 |TIMED |pressure
-|rain |READ_ONLY |FLOAT |1 |TIMED |rain
-|soilMoisture |READ_ONLY |FLOAT |1 |TIMED |soilMoisture
-|temperature |READ_ONLY |FLOAT |1 |TIMED |temperature
-|uva |READ_ONLY |FLOAT |1 |TIMED |uva
-|uvb |READ_ONLY |FLOAT |1 |TIMED |uvb
-|uvIndex |READ_ONLY |FLOAT |1 |TIMED |uvIndex
-|windDirection |READ_ONLY |FLOAT |1 |TIMED |windDirection
-|windSpeed |READ_ONLY |FLOAT |1 |TIMED |windSpeed
-|lightningOccurred |READ_ONLY |BOOLEAN |1 |TIMED |lightningOccurred
+|Name |Permission |Type |Update Parameter |Update Strategy |Variable Name| Starting Plan
+|temperature |READ_ONLY |FLOAT |1 |TIMED |temperature |all
+|rain |READ_ONLY |FLOAT |1 |TIMED |rain |all
+|windDirection |READ_ONLY |FLOAT |1 |TIMED |windDirection |all
+|windSpeed |READ_ONLY |FLOAT |1 |TIMED |windSpeed |all
+|pressure |READ_ONLY |FLOAT |1 |TIMED |pressure |all
+|soilMoisture |READ_ONLY |FLOAT |1 |TIMED |soilMoisture |Entry
+|humidity |READ_ONLY |FLOAT |1 |TIMED |humidity |Entry
+|lightningDistance |READ_ONLY |FLOAT |1 |TIMED |lightningDistance |Entry
+|lightningOccurred |READ_ONLY |BOOLEAN |1 |TIMED |lightningOccurred |Entry
+|uvIndex |READ_ONLY |FLOAT |1 |TIMED |uvIndex |Entry
+|uva |READ_ONLY |FLOAT |1 |TIMED |uva |Maker
+|uvb |READ_ONLY |FLOAT |1 |TIMED |uvb |Maker
 |===
 
+The _Starting Plan_ column indicates with which plans you can start using the variables. See the Note.
+So, for example, you only have to create _uvIndex_ variable if you have an *Entry* or superior plan (*Entry*, *Maker* or *Maker+*).
+
+.*Note on the maximum number of variables*
+[NOTE]
+===============================
+Depending on your Arduino Cloud subscription, you have a limit on the number of maximum variables that you can configure.
+[options="header"]
+|===
+|Plan |Max number of vars 
+|Free |5
+|Entry |10
+|Maker | Unlimited
+|Maker Plus | Unlimited
+|===
+
+Check the full list of supported features for each https://cloud.arduino.cc/plans[plan].
+===============================
+
+== Dashboard
+To create the dashboard, open the Arduino Cloud https://create.arduino.cc/iot/dashboards[Dashboards tab] and click on *CREATE*.
+
+You can easily customize your dashboard manually adding the widgets and linking your variables to them. As a reference take a look at the https://github.com/dbduino-prjs/spkfn-weather-station-arduino-cloud/blob/master/assets/Sparkfun_Weather_Station-screenshot1.png?raw=true[screenshot] in the assets folder.
+
+NOTE: If you want to learn more about dashboards, you can check this https://docs.arduino.cc/arduino-cloud/getting-started/dashboard-widgets[article] and to learn more about how to use them in the https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started#8-creating-a-dashboard[Getting Started guide].
+
+=== Import the dashboard template using the Cloud CLI
+Alternatively, you can import the https://github.com/dbduino-prjs/spkfn-weather-station-arduino-cloud/blob/master/arduino-cloud/Spkfn_Weath_Station-dashboard.yaml?raw=true[template] located in the *arduino_cloud* folder following these instructions:
+
+. Initialize your credentials (this only has to be done the first time)
+[source,shell]
+----
+arduino-cloud-cli credentials init
+----
+. Download the YAML template file
+. Create the dashboard using the template file
+[source,shell]
+----
+arduino-cloud-cli dashboard create --name <your_dashboardName> --template Spkfn_Weath_Station-dashboard.yaml --override Spkfn_Weather_Station=<your_thing_ID>
+----
+
+NOTE: Check the full documentation of the Arduino Cloud CLI in this https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli[article].
+
 == License
-This project is released under a GNU General Public v3.0 License.
+This project is released under the GNU General Public License v3.0.
 
 == Contributing
 To contribute to this project please contact: d.beamonte@arduino.cc
