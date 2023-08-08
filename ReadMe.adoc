@@ -4,7 +4,7 @@
 :Revision: version#
 :License: Public Domain
 
-= Project: Monitor SparkFun Weather Station Kit with Arduino Cloud
+= Monitor SparkFun Weather Station Kit with Arduino Cloud
 
 This project shows how to create a weather station monitored by https://cloud.arduino.cc[Arduino Cloud].
 
@@ -90,6 +90,29 @@ Depending on your Arduino Cloud subscription, you have a limit on the number of 
 Check the full list of supported features for each https://cloud.arduino.cc/plans[plan].
 ===============================
 
+== Dashboard
+To create the dashboard, open the Arduino Cloud https://create.arduino.cc/iot/dashboards[Dashboards tab] and click on *CREATE*.
+
+You can easily customize your dashboard manually adding the widgets and linking your variables to them. As a reference take a look at the https://github.com/dbduino-prjs/spkfn-weather-station-arduino-cloud/blob/master/assets/Sparkfun_Weather_Station-screenshot1.png?raw=true[screenshot] in the assets folder.
+
+NOTE: If you want to learn more about dashboards, you can check this https://docs.arduino.cc/arduino-cloud/getting-started/dashboard-widgets[article] and to learn more about how to use them in the https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started#8-creating-a-dashboard[Getting Started guide].
+
+=== Import the dashboard template using the Cloud CLI
+Alternatively, you can import the https://github.com/dbduino-prjs/spkfn-weather-station-arduino-cloud/blob/master/arduino-cloud/Spkfn_Weath_Station-dashboard.yaml?raw=true[template] located in the *arduino_cloud* folder following these instructions:
+
+. Initialize your credentials (this only has to be done the first time)
+[source,shell]
+----
+arduino-cloud-cli credentials init
+----
+. Download the YAML template file
+. Create the dashboard using the template file
+[source,shell]
+----
+arduino-cloud-cli dashboard create --name <your_dashboardName> --template Spkfn_Weath_Station-dashboard.yaml --override Spkfn_Weather_Station=<your_thing_ID>
+----
+
+NOTE: Check the full documentation of the Arduino Cloud CLI in this https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli[article].
 
 == License
 This project is released under the GNU General Public License v3.0.
