@@ -112,6 +112,8 @@ arduino-cloud-cli credentials init
 arduino-cloud-cli dashboard create --name <your_dashboardName> --template Spkfn_Weath_Station-dashboard.yaml --override Spkfn_Weather_Station=<your_thing_ID>
 ----
 
+NOTE: You can get _your_thing_ID_ from the *Metadata* section of your Thing.
+
 NOTE: Check the full documentation of the Arduino Cloud CLI in this https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli[article].
 
 == License
