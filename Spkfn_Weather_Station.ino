@@ -198,7 +198,7 @@ void recordSensorData()
   if(bme280Connected)
   {
     humidity = myBME280.readFloatHumidity();
-    pressure = myBME280.readFloatPressure();
+    pressure = myBME280.readFloatPressure() / 100.0;
     temperature = myBME280.readTempC();
   }
 
