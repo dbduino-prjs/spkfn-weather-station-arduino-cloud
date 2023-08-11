@@ -10,7 +10,7 @@ This project shows how to create a weather station monitored by https://cloud.ar
 
 No matter if you're an agriculturalist, a professional meteorologist, or simply a weather enthusiast, creating your own weather station can be an incredibly fulfilling endeavor. But when it comes to measuring weather accurately, you'll require some specialized sensors. With the combination of the https://www.sparkfun.com/products/16794[Sparkfun MicroMod Weather Carrier Board] and the https://www.sparkfun.com/products/15901[Sparkfun Weather Meter kit] you can build your own weather monitor station very easily.
 
-image::https://github.com/dbduino-prjs/spkfn-weather-station-arduino-cloud/blob/master/assets/Sparkfun_Weather_Station-screenshot1.png?raw=true[width=300, align=center]
+image::./assets/Sparkfun_Weather_Station-dashboard.png[width=300, align=center]
 :caption: Screenshot of the Weather Station dashboard
 
 == Prerequisites
@@ -93,7 +93,7 @@ Check the full list of supported features for each https://cloud.arduino.cc/plan
 == Dashboard
 To create the dashboard, open the Arduino Cloud https://create.arduino.cc/iot/dashboards[Dashboards tab] and click on *CREATE*.
 
-You can easily customize your dashboard manually adding the widgets and linking your variables to them. As a reference take a look at the https://github.com/dbduino-prjs/spkfn-weather-station-arduino-cloud/blob/master/assets/Sparkfun_Weather_Station-screenshot1.png?raw=true[screenshot] in the assets folder.
+You can easily customize your dashboard manually adding the widgets and linking your variables to them. As a reference take a look at the https://github.com/dbduino-prjs/spkfn-weather-station-arduino-cloud/blob/master/assets/Sparkfun_Weather_Station-dashboard.png?raw=true[screenshot] in the assets folder.
 
 NOTE: If you want to learn more about dashboards, you can check this https://docs.arduino.cc/arduino-cloud/getting-started/dashboard-widgets[article] and to learn more about how to use them in the https://docs.arduino.cc/arduino-cloud/getting-started/iot-cloud-getting-started#8-creating-a-dashboard[Getting Started guide].
 
@@ -111,6 +111,8 @@ arduino-cloud-cli credentials init
 ----
 arduino-cloud-cli dashboard create --name <your_dashboardName> --template Spkfn_Weath_Station-dashboard.yaml --override Spkfn_Weather_Station=<your_thing_ID>
 ----
+
+NOTE: You can get _your_thing_ID_ from the *Metadata* section of your Thing.
 
 NOTE: Check the full documentation of the Arduino Cloud CLI in this https://docs.arduino.cc/arduino-cloud/getting-started/arduino-cloud-cli[article].
 
