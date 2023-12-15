@@ -65,19 +65,26 @@ bool bme280Connected = false;
 bool veml6075Connected = false;
 bool as3935Connected = false;
 
-#if ARDUINO_CLOUD_PLAN < ARDUINO_CLOUD_PLAN_MAKER
+/* You can decide which variables you want to use depending on your plan
+ * Create the variable in the Thing and comment the declaration below */
+#if ARDUINO_CLOUD_PLAN <= ARDUINO_CLOUD_PLAN_ENTRY
+  // ENTRY plan
+
   float uva;
   float uvb;
-# if ARDUINO_CLOUD_PLAN < ARDUINO_CLOUD_PLAN_ENTRY
+# if ARDUINO_CLOUD_PLAN == ARDUINO_CLOUD_PLAN_FREE
+  // FREE plan
+  // Commented variables are the ones that should be defined in the Thing
+
   float humidity;
   //float pressure;
   float soilMoisture;
   //float rain;
   //float temperature;
-  float uvIndex;
+  //float uvIndex;
   bool lightningOccurred;
   float lightningDistance;
-  //float windDirection;
+  float windDirection;
   //float windSpeed;
 # endif
 #endif
