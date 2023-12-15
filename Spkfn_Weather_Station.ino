@@ -32,7 +32,8 @@
 #define ARDUINO_CLOUD_PLAN_MAKER  2
 
 // Set ARDUINO_CLOUD_PLAN to one of the above (ARDUINO_CLOUD_PLAN_xxxx)
-#define ARDUINO_CLOUD_PLAN    ARDUINO_CLOUD_PLAN_MAKER
+#define ARDUINO_CLOUD_PLAN    ARDUINO_CLOUD_PLAN_FREE
+
 // Set the polling period (in milliseconds)
 #define POLLING_PERIOD  1000
 
