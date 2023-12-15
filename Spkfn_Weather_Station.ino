@@ -33,6 +33,8 @@
 
 // Set ARDUINO_CLOUD_PLAN to one of the above (ARDUINO_CLOUD_PLAN_xxxx)
 #define ARDUINO_CLOUD_PLAN    ARDUINO_CLOUD_PLAN_MAKER
+// Set the polling period (in milliseconds)
+#define POLLING_PERIOD  1000
 
 // Libraries
 #include <Wire.h>
@@ -79,7 +81,7 @@ bool as3935Connected = false;
 # endif
 #endif
 
-unsigned long polling_period = 1000;
+unsigned long polling_period = POLLING_PERIOD;
 
 void setup() {
   // Initialize serial and wait for port to open:
